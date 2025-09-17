@@ -19,13 +19,42 @@ A seguir, os passos para a preparação do projeto:
 10. Segurança é imprescindível nas plataforma de hospedagem de repositórios GIT. CUIDADO com exposição de senha e acesso ao repositório.
 
 
-# Projeto: *<Nome_do_seu_Projeto>*
+# Projeto: *Sistema de Entregas com Drone*
 
-# Grupo: *<Nome_do_seu_Grupo>*
+# Grupo: *Roberto*
+
+# Integrantes: 
+Carolina Lee - 10440304
+Tarik Nasser Ferreira Kanbour - 10435895
 
 # Descrição
 
-*<Descrição_resumida_do_projeto>*
+*Contexto
+Uma startup deseja oferecer entregas rápidas de pequenos pacotes usando drones em áreas urbanas. O sistema precisa gerenciar usuários, pedidos e rotas de drones.
+
+
+
+Funcionalidades mínimas a implementar
+Cadastro de clientes (dados pessoais e endereço).
+
+Cadastro de drones (ID, status da bateria, capacidade de carga).
+
+Solicitação de entrega (cliente informa destino e peso do pacote).
+
+Atribuição automática do drone disponível mais adequado (capacidade e bateria).
+
+Histórico de entregas realizadas por cliente e por drone.
+
+
+
+Requisitos de segurança
+Validação do peso do pacote (não exceder capacidade).
+
+Validação de endereços (formato e dados corretos).
+
+Proteção contra manipulação de dados em requisições de entrega.
+
+Controle de exceções em drones indisponíveis.
 
 # Documentação
 
