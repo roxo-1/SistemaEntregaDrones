@@ -15,12 +15,7 @@ public class Atribuicao {
         this.statusBateria = statusBateria;
     }
     //Getters e Setters
-    public int getIdAtribuicao() { return idAtribuicao; }
-    public void setIdAtribuicao(int idAtribuicao) { this.idAtribuicao = idAtribuicao; }
-    public Int getCapacidadeCarga() {return capacidadeCarga;}
-    public void setCapacidadeCarga(int capacidadeCarga) { this.capacidadeCarga = capacidadeCarga; }
-    public String getStatusBateria() {return statusBateria;}
-    public void setStatusBateria(String statusBateria) { this.statusBateria = statusBateria; }
-    public int getIdDrone(){ return idDrone; }
-    public int getIdCliente() { return idCliente; }
+    public void atribuirDrone(int idCliente, double peso) {
+        System.out.println("Drone atribuído automaticamente ao cliente " + idCliente);
+    }
 }

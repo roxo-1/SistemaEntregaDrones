@@ -1,4 +1,5 @@
 package classes;
+import interfaces.IGerenciamentoDrone;
 public class Drones {
     protected int idDrone;
     private String statusBateria;
@@ -12,11 +13,14 @@ public class Drones {
         this.capacidadeCarga = capacidadeCarga;
     }
 
-    // Getters e Setters
-    public int getId_drone() { return id_drone; }
-    public void setId_drone(int id_drone) { this.id_drone = id_drone; }
-    public String getstatusBateria() { return statusBateria; }
-    public void setstatusBateria(String statusBateria) { this.statusBateria = statusBateria; }
-    public int getcapacidadeCarga() { return capacidadeCarga; }
-    public void setcapacidadeCarga(int capacidadeCarga) { this.capacidadeCarga = capacidadeCarga; }
+    @Override
+    public void cadastrarDrone(int id, String statusBateria, int capacidadeCarga) {
+        System.out.println("Drone cadastrado: ID=" + id + ", Bateria=" + statusBateria);
+    }
+
+    @Override
+    public void atualizarStatus(int id, String novoStatus) {
+        this.statusBateria = novoStatus;
+        System.out.println("Drone " + id + " atualizado para status: " + novoStatus);
+    }
 }

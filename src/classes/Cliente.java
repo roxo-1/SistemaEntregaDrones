@@ -1,13 +1,12 @@
 package classes;
-public class Cliente {
+import interfaces.IAutenticacao;
+import interfaces.IEntrega;
+public class Cliente implements IAutenticacao, IEntrega {
     protected int idCliente;
     private String nome;
     private String email;
     private String senha;
     protected String endereco;
-
-    // Construtores
-    public Cliente() {}
 
     public Cliente(String nome, String email, String senha, String endereco) {
         this.nome = nome;
@@ -16,15 +15,25 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    // Getters e Setters (Métodos de acesso e modificação)
-    public int getIdCliente() { return idCliente; }
-    public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getSenha() { return senha; }
-    public void setSenha(String senha) { this.senha = senha; }
-    public String getEndereco() { return endereco; }
-    public void setEndereco(String endereco) { this.endereco = endereco; }
+    @Override
+    public boolean login(String nome, String email, String senha, String endereco) {
+        System.out.println("Cliente autenticado: " + nome);
+        return true;
+    }
+
+    @Override
+    public void finalizarSessao() {
+        System.out.println("Sessão encerrada para o cliente " + nome);
+    }
+
+    @Override
+    public void solicitarEntrega(int idCliente, double peso, String destino) {
+        System.out.println("Solicitação de entrega criada pelo cliente " + idCliente +
+                           " para destino: " + destino);
+    }
+
+    @Override
+    public void mostrarHistorico(int idCliente) {
+        System.out.println("Exibindo histórico de entregas do cliente " + idCliente);
+    }
 }
