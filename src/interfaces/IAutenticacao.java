@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface IAutenticacao {
-    boolean login(String nome, String email, String senha, String endereco);
+    boolean login(String email, String senha);
     void finalizarSessao();
 }
