@@ -1,6 +1,9 @@
 package interfaces;
 
+import classes.Drone;
+
 public interface IGerenciamentoDrone {
-    void cadastrarDrone(int id, String statusBateria, int capacidadeCarga);
-    void atualizarStatus(int id, String novoStatus);
+    void atualizarStatus(int idDrone, String novoStatus); 
+    void cadastrarDrone(String statusBateria, int capacidadeCarga);
+    Drone buscarDroneDisponivel(int capacidadeCarga);
 }

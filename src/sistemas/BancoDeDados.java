@@ -1,4 +1,4 @@
-package database;
+package sistemas;
 
 public class BancoDeDados {
     public void salvar(Object objeto) {

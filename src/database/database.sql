@@ -30,7 +30,7 @@ CREATE TABLE HistoricoEntrega (
     idHistorico INT PRIMARY KEY AUTO_INCREMENT,
     idCliente INT NOT NULL,
     idDrone INT NOT NULL,
-    dataEntrega DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dataEntrega TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente),
     FOREIGN KEY (idDrone) REFERENCES Drone(idDrone)
 );

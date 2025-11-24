@@ -1,4 +1,4 @@
-package sistema;
+package sistemas;
 
 public class SistemaAutenticacao {
     public boolean validarLogin(String email, String senha) {
