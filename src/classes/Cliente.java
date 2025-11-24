@@ -1,14 +1,18 @@
 package classes;
+
 import interfaces.IAutenticacao;
 import interfaces.IEntrega;
+
 public class Cliente implements IAutenticacao, IEntrega {
-    protected int idCliente;
+
+    private int idCliente;
     private String nome;
     private String email;
     private String senha;
-    protected String endereco;
+    private String endereco;
 
-    public Cliente(String nome, String email, String senha, String endereco) {
+    public Cliente(int idCliente, String nome, String email, String senha, String endereco) {
+        this.idCliente = idCliente;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -16,9 +20,13 @@ public class Cliente implements IAutenticacao, IEntrega {
     }
 
     @Override
-    public boolean login(String nome, String email, String senha, String endereco) {
-        System.out.println("Cliente autenticado: " + nome);
-        return true;
+    public boolean login(String email, String senha) {
+        if(this.email.equals(email) && this.senha.equals(senha)) {
+            System.out.println("Login realizado com sucesso: " + nome);
+            return true;
+        }
+        System.out.println("Falha no login.");
+        return false;
     }
 
     @Override
@@ -29,11 +37,11 @@ public class Cliente implements IAutenticacao, IEntrega {
     @Override
     public void solicitarEntrega(int idCliente, double peso, String destino) {
         System.out.println("Solicitação de entrega criada pelo cliente " + idCliente +
-                           " para destino: " + destino);
+                           " -> Peso: " + peso + "kg | Destino: " + destino);
     }
 
     @Override
     public void mostrarHistorico(int idCliente) {
-        System.out.println("Exibindo histórico de entregas do cliente " + idCliente);
+        System.out.println("Exibindo histórico do cliente " + idCliente);
     }
 }
