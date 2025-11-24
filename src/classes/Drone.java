@@ -1,6 +1,6 @@
 package classes;
 import interfaces.IGerenciamentoDrone;
-public class Drones {
+public class Drones implements IGerenciamentoDrone {
     protected int idDrone;
     private String statusBateria;
     private int capacidadeCarga;
@@ -9,9 +9,13 @@ public class Drones {
     public Drones() {}
 
     public Drones(String statusBateria, int capacidadeCarga) {
+        this.idDrone = idDrone;
         this.statusBateria = statusBateria;
         this.capacidadeCarga = capacidadeCarga;
     }
+    public int getIdDrone() { return idDrone; }
+    public String getStatusBateria() { return statusBateria; }
+    public int getCapacidadeCarga() { return capacidadeCarga; }
 
     @Override
     public void cadastrarDrone(int id, String statusBateria, int capacidadeCarga) {
