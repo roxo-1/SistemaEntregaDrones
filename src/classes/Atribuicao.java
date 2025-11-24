@@ -7,8 +7,9 @@ public class Atribuicao {
     protected String statusBateria; // Estado do drone no momento da atribuição
 
     // Construtores
-    public Atribuicao() {}
+    // public Atribuicao() {}
     public Atribuicao(int idCliente, int idDrone, int capacidadeCarga, String statusBateria) {
+        this.idAtribuicao = idAtribuicao;
         this.idCliente = idCliente;
         this.idDrone = idDrone;
         this.capacidadeCarga = capacidadeCarga; 
