@@ -38,9 +38,10 @@ public class DroneService {
         Drone d = new Drone(statusBateria, capacidadeCarga);
         try {
             new DroneDAO().cadastrarDrone(d);
+            System.out.println("Drones Cadastrados!");
         } catch (Exception e) {
             throw new Exception("Erro ao tentar cadastrar o drone: " + e.getMessage(), e);
         }
-        new DroneDAO().cadastrarDrone(d);
+        // new DroneDAO().cadastrarDrone(d);
     }
 }

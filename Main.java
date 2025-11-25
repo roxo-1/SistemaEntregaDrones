@@ -29,7 +29,7 @@ public class Main {
         // --- A. CADASTRO DE CLIENTE (Funcionalidade 1) ---
         System.out.println("\n--- A. Teste: Cadastro de Cliente ---");
         try {
-            clienteService.cadastrarCliente("Taylor Swift", "Taylor@test.com", "cewdwe", "Rua D, 104");
+            clienteService.cadastrarCliente("sdasda", "dasdsad@test.com", "asdadsd", "Rua H, 106");
         } catch (RuntimeException e) {
             System.err.println("Falha no cadastro de cliente: " + e.getMessage());
         }
@@ -45,7 +45,6 @@ public class Main {
             
             // Drone 3: Capacidade e bateria baixas (Será o menos adequado)
             droneService.cadastrarDrone("BAIXO", 200);
-            System.out.println("Drones Cadastrados!");
 
         } catch (Exception e) {
             System.err.println("Falha no cadastro de drone: " + e.getMessage());

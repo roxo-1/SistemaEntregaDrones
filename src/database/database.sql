@@ -11,7 +11,8 @@ CREATE TABLE Cliente (
 CREATE TABLE Drone (
     idDrone INT PRIMARY KEY AUTO_INCREMENT,
     statusBateria ENUM('ALTO','MEDIO','BAIXO') NOT NULL,
-    capacidadeCarga INT NOT NULL
+    capacidadeCarga INT NOT NULL,
+    disponivel BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 -- 3. Tabela ATRIBUICAO

@@ -38,8 +38,8 @@ public class DroneDAO {
     }
     
     public Drone buscarDroneDisponivel(int capacidadeCarga) {
-        String sql = "SELECT * FROM Drone WHERE disponivel = TRUE AND capacidade_carga >= ? " +
-                 "ORDER BY CASE status_bateria WHEN 'ALTO' THEN 3 WHEN 'MEDIO' THEN 2 ELSE 1 END DESC, capacidade_carga ASC LIMIT 1";
+        String sql = "SELECT * FROM Drone WHERE disponivel = TRUE AND capacidadeCarga >= ? " +
+                 "ORDER BY CASE statusBateria WHEN 'ALTO' THEN 3 WHEN 'MEDIO' THEN 2 ELSE 1 END DESC, capacidadeCarga ASC LIMIT 1";
         try (Connection conn = ConexaoBD.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
