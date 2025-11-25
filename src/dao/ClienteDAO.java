@@ -8,7 +8,7 @@ import java.sql.*;
 public class ClienteDAO {
 
     public void cadastrar(Cliente c) {
-        String sql = "INSERT INTO Cliente (nome, email, senhaHash, endereco) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Cliente (nome, email, senha, endereco) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = ConexaoBD.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -19,34 +19,34 @@ public class ClienteDAO {
             stmt.setString(4, c.getEndereco());
             stmt.executeUpdate();
 
-        } catch (Exception e) {
+        } catch (Exception e) { // agora captura Exception genérica
             throw new RuntimeException("Erro ao cadastrar cliente.", e);
         }
     }
 
-    public Cliente buscarPorId(int id) {
-        String sql = "SELECT * FROM Cliente WHERE idCliente = ?";
+    // public Cliente buscarPorId(int id) {
+    //     String sql = "SELECT * FROM Cliente WHERE idCliente = ?";
 
-        try (Connection conn = ConexaoBD.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    //     try (Connection conn = ConexaoBD.conectar();
+    //          PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
+    //         stmt.setInt(1, id);
+    //         ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                return new Cliente(
-                        rs.getInt("idCliente"),
-                        rs.getString("nome"),
-                        rs.getString("email"),
-                        rs.getString("senhaHash"),
-                        rs.getString("endereco")
-                );
-            }
+    //         if (rs.next()) {
+    //             return new Cliente(
+    //                     rs.getInt("idCliente"),
+    //                     rs.getString("nome"),
+    //                     rs.getString("email"),
+    //                     rs.getString("senhaHash"),
+    //                     rs.getString("endereco")
+    //             );
+    //         }
 
-        } catch (Exception e) {
-            throw new RuntimeException("Erro na consulta de cliente.", e);
-        }
+    //     } catch (Exception e) {
+    //         throw new RuntimeException("Erro na consulta de cliente.", e);
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

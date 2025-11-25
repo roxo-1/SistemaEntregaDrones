@@ -32,12 +32,14 @@ public class DroneDAO {
             }
             
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao cadastrar drone: " + e.getMessage(), e);
+            // throw new RuntimeException("Erro ao cadastrar drone: " + e.getMessage(), e);
+            System.out.println("e");
         }
     }
     
-    public Drone buscarDroneDisponivel(int capacidadeCarga) throws Exception{
-        String sql = "SELECT idDrone, statusBateria, capacidadeCarga FROM Drone WHERE capacidadeCarga >= ? AND statusBateria = 'DISPONIVEL' LIMIT 1";
+    public Drone buscarDroneDisponivel(int capacidadeCarga) {
+        String sql = "SELECT * FROM Drone WHERE disponivel = TRUE AND capacidade_carga >= ? " +
+                 "ORDER BY CASE status_bateria WHEN 'ALTO' THEN 3 WHEN 'MEDIO' THEN 2 ELSE 1 END DESC, capacidade_carga ASC LIMIT 1";
         try (Connection conn = ConexaoBD.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
