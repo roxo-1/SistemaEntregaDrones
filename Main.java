@@ -29,7 +29,7 @@ public class Main {
         // --- A. CADASTRO DE CLIENTE (Funcionalidade 1) ---
         System.out.println("\n--- A. Teste: Cadastro de Cliente ---");
         try {
-            clienteService.cadastrarCliente("sdasda", "dasdsad@test.com", "asdadsd", "Rua H, 106");
+            clienteService.cadastrarCliente("José Rosa", "joser@test.com", "joser123", "Rua J, 108");
         } catch (RuntimeException e) {
             System.err.println("Falha no cadastro de cliente: " + e.getMessage());
         }

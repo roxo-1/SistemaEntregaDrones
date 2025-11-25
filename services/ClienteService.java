@@ -2,9 +2,6 @@ package services;
 
 import classes.Cliente;
 import dao.ClienteDAO;
-// import utils.SecurityUtil; // Classe utilitária para Hash (simulada)
-// import java.sql.SQLException;
-
 public class ClienteService {
 
     private final ClienteDAO clienteDAO;
@@ -41,12 +38,4 @@ public class ClienteService {
         // simplificação de hash
         return "HASH_" + senha.toUpperCase() + "_SECURE"; 
     }
-
-    // public Cliente autenticar(String email, String senhaPlana) {
-    //     Cliente cliente = clienteDAO.buscarPorEmail(email);
-    //     if (cliente != null && SecurityUtil.verificarSenha(senhaPlana, cliente.getSenhaHash())) {
-    //         return cliente;
-    //     }
-    //     return null; // Falha na autenticação
-    // }
 }

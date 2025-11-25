@@ -6,7 +6,6 @@ import dao.AtribuicaoDAO;
 import dao.DroneDAO;
 import dao.HistoricoEntregaDAO;
 import java.util.List;
-// import java.sql.SQLException;
 
 public class HistoricoEntregaService {
     private final DroneDAO droneDAO;
@@ -28,25 +27,24 @@ public class HistoricoEntregaService {
             Drone droneDisponivel = droneDAO.buscarDroneDisponivel(capacidadeCarga); 
             
             if (droneDisponivel == null) {
-                System.out.println("❌ Nenhum drone disponível para esse peso (" + capacidadeCarga + ")");
+                System.out.println("Nenhum drone disponível para esse peso (" + capacidadeCarga + ")");
                 return;
             }
 
             // 2. Registrar a Atribuição (Necessário para a lógica do sistema)
             Atribuicao atribuicao = new Atribuicao(idCliente, droneDisponivel.getIdDrone(), droneDisponivel.getStatusBateria());
             atribDAO.salvar(atribuicao);
-            System.out.println("✅ Drone " + droneDisponivel.getIdDrone() + " atribuído ao cliente " + idCliente);
+            System.out.println("Drone " + droneDisponivel.getIdDrone() + " atribuído ao cliente " + idCliente);
 
             // 3. Registrar o Histórico (Cria o registro da nova entrega)
-            // ➡️ CORREÇÃO AQUI: Chamando o construtor apenas com ID do Drone e ID do Cliente
             HistoricoEntrega historico = new HistoricoEntrega(droneDisponivel.getIdDrone(), idCliente, destino, pesoPacote);
             histDAO.registrar(historico);
             
-            System.out.println("✅ Entrega registrada no histórico para cliente " + idCliente);
+            System.out.println("Entrega registrada no histórico para cliente " + idCliente);
             
         } catch (Exception e) { 
             // Envolve a checked exception em uma unchecked para a camada superior.
-            throw new RuntimeException("❌ Erro no processo de Solicitação/Atribuição (DB): " + e.getMessage(), e);
+            throw new RuntimeException("Erro no processo de Solicitação/Atribuição (DB): " + e.getMessage(), e);
         }
     }
 
